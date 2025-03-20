@@ -146,6 +146,29 @@
             background-color: #333;
             color: white;
         }
+
+        /* Navigation Arrows */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
     </style>
 </head>
 
@@ -172,19 +195,19 @@
             </div>
 
             <!-- Image set 1 -->
-            <div class="portfolio-item" onclick="openImageModal('Space01.PNG')">
+            <div class="portfolio-item" onclick="openImageModal([ 'Space01.PNG', 'Space02.PNG' ])">
                 <img src="Space01.PNG" alt="Project 1">
                 <h3>Space Project 1</h3>
             </div>
 
             <!-- Image set 2 -->
-            <div class="portfolio-item" onclick="openImageModal('SK01.PNG')">
+            <div class="portfolio-item" onclick="openImageModal([ 'SK01.PNG', 'SK02.PNG', 'SK03.PNG' ])">
                 <img src="SK01.PNG" alt="Project 2">
                 <h3>SK Project 2</h3>
             </div>
 
             <!-- Image set 3 -->
-            <div class="portfolio-item" onclick="openImageModal('W01.PNG')">
+            <div class="portfolio-item" onclick="openImageModal([ 'W01.PNG' ])">
                 <img src="W01.PNG" alt="Project 3">
                 <h3>W Project 3</h3>
             </div>
@@ -218,10 +241,15 @@
     <!-- Modal for Image -->
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeImageModal()">&times;</span>
+        <button class="arrow arrow-left" onclick="changeImage(-1)">&#10094;</button>
         <img id="modalImage" class="modal-content" src="" alt="">
+        <button class="arrow arrow-right" onclick="changeImage(1)">&#10095;</button>
     </div>
 
     <script>
+        var currentImageIndex = 0;
+        var imagesArray = [];
+
         // Open Video Modal and load the video
         function openVideoModal(videoUrl) {
             var modal = document.getElementById('videoModal');
@@ -254,11 +282,13 @@
             modal.style.display = "none";
         }
 
-        // Open Image Modal and load the clicked image
-        function openImageModal(imageSrc) {
+        // Open Image Modal and load the clicked images
+        function openImageModal(images) {
+            imagesArray = images; // Store the images in an array
+            currentImageIndex = 0; // Start at the first image
             var modal = document.getElementById('imageModal');
             var modalImage = document.getElementById('modalImage');
-            modalImage.src = imageSrc; // Set the image source to the clicked image
+            modalImage.src = imagesArray[currentImageIndex]; // Set the image source to the first image
             modal.style.display = "block";
         }
 
@@ -268,6 +298,15 @@
             var modalImage = document.getElementById('modalImage');
             modalImage.src = ""; // Clear the image source
             modal.style.display = "none";
+        }
+
+        // Change image in the modal
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = imagesArray.length - 1;
+            if (currentImageIndex >= imagesArray.length) currentImageIndex = 0;
+            var modalImage = document.getElementById('modalImage');
+            modalImage.src = imagesArray[currentImageIndex];
         }
 
         // Close the modal when the user clicks on the close button
