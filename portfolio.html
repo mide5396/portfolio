@@ -6,81 +6,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Michael Dempsey - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Simple Styles for Portfolio */
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
             color: #333;
         }
 
         header {
             background-color: #333;
             color: white;
-            padding: 20px 0;
+            padding: 40px 0;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            font-weight: 600;
         }
 
         nav {
             text-align: center;
             background-color: #444;
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         nav a {
             color: white;
-            margin: 0 15px;
+            margin: 0 20px;
             text-decoration: none;
             font-size: 1.2em;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12;
         }
 
         .section {
-            padding: 50px 0;
+            padding: 60px 20px;
             text-align: center;
         }
 
         .section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #333;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Larger image size */
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 20px;
         }
 
         .portfolio-item {
             background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
         .portfolio-item:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Ensure the images are responsive */
+        /* Image Styling */
         .portfolio-item img {
             width: 100%;
-            height: auto; /* Maintain aspect ratio */
+            height: auto;
             border-radius: 8px;
-            max-height: 500px; /* Set a maximum height for the image */
-            object-fit: cover; /* Crop the image if necessary */
+            max-height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        /* Modal for image expansion */
+        .portfolio-item img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -98,10 +115,12 @@
             margin: auto;
             display: block;
             width: 80%;
-            max-width: 700px;
+            max-width: 1200px;
+            max-height: 80%;
+            height: 70%;
+            transition: 0.3s ease;
         }
 
-        /* Close button */
         .close {
             position: absolute;
             top: 15px;
@@ -120,122 +139,62 @@
             cursor: pointer;
         }
 
-        /* Arrow buttons for navigation */
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            padding: 16px;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-            transition: 0.3s;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            transform: translateY(-50%)
-        }
-
-        .prev {
-            left: 0;
-        }
-
-        .next {
-            right: 0;
-        }
-
-        .prev:hover, .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Grouping of images into boxes for subset navigation */
-        .image-set {
-            position: relative;
-            display: inline-block;
-        }
-
-        .image-set img {
-            width: 100%;
-            border-radius: 8px;
-            max-height: 500px;
-        }
-
-        /* Positioning of the arrows within the image set */
-        .set-arrows {
-            position: absolute;
-            top: 50%;
-            width: 80%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            z-index: 2; /* Ensure arrows are above the images */
-        }
-
-        /* Styling of the individual arrows */
-        .set-arrows .prev,
-        .set-arrows .next {
-            background-color: rgba(0, 0, 0, 0.7);
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
             color: white;
-            font-size: 30px;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            user-select: none;
-            transition: 0.3s;
         }
-
-        .set-arrows .prev:hover,
-        .set-arrows .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Ensure the images are behind the arrows */
-        .image-set img {
-            width: 100%;
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 8px;
-            max-height: 500px; /* Set a maximum height for the image */
-            object-fit: cover; /* Crop the image if necessary */
-            z-index: 1; /* Ensure images are below arrows */
-        }
-
     </style>
 </head>
 
 <body>
 
+    <header>
+        <h1>Michael Dempsey - Portfolio</h1>
+    </header>
+
+    <nav>
+        <a href="#portfolio">My Work</a>
+        <a href="#about">About Me</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Portfolio Section -->
     <section id="portfolio" class="section">
         <h2>My Work</h2>
         <div class="portfolio-grid">
-            <!-- Image set 1 (Image 1 and 2) -->
-            <div class="portfolio-item image-set">
-                <div class="set-arrows">
-                    <span class="prev">&#10094;</span>
-                    <span class="next">&#10095;</span>
-                </div>
-                <img src="Game01.PNG" alt="Project 1" class="expand-image">
-                <img src="Game02.PNG" alt="Project 2" class="expand-image">
+
+            <div class="portfolio-item">
+                <h3>Figma Design</h3>
+                <button onclick="openFigmaModal()">Click to View Figma Design</button>
             </div>
 
-            <!-- Image set 2 (Image 3 and 4) -->
-            <div class="portfolio-item image-set">
-                <div class="set-arrows">
-                    <span class="prev">&#10094;</span>
-                    <span class="next">&#10095;</span>
-                </div>
-                <img src="Game03.PNG" alt="Project 3" class="expand-image">
-                <img src="Game04.PNG" alt="Project 4" class="expand-image">
+            <!-- Image set 1 -->
+            <div class="portfolio-item" onclick="openImageModal('Space01.PNG')">
+                <img src="Space01.PNG" alt="Project 1">
+                <h3>Space Project 1</h3>
             </div>
 
-            <!-- Image set 3 (Image 5 and 6) -->
-            <div class="portfolio-item image-set">
-                <div class="set-arrows">
-                    <span class="prev">&#10094;</span>
-                    <span class="next">&#10095;</span>
-                </div>
-                <img src="Game05.PNG" alt="Project 5" class="expand-image">
-                <img src="Game06.PNG" alt="Project 6" class="expand-image">
+            <!-- Image set 2 -->
+            <div class="portfolio-item" onclick="openImageModal('SK01.PNG')">
+                <img src="SK01.PNG" alt="Project 2">
+                <h3>SK Project 2</h3>
             </div>
+
+            <!-- Image set 3 -->
+            <div class="portfolio-item" onclick="openImageModal('W01.PNG')">
+                <img src="W01.PNG" alt="Project 3">
+                <h3>W Project 3</h3>
+            </div>
+
+            <!-- Video Project -->
+            <div class="portfolio-item">
+                <h3>Video Project</h3>
+                <button onclick="openVideoModal('https://www.youtube.com/embed/48jYBSJvXPQ')">Click to View Video</button>
+            </div>
+
         </div>
     </section>
 
@@ -244,78 +203,82 @@
         <p>&copy; 2025 Michael Dempsey. All rights reserved.</p>
     </footer>
 
-    <!-- Modal for Image Expansion -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <span class="prev">&#10094;</span>
-        <img class="modal-content" id="expandedImg">
-        <span class="next">&#10095;</span>
+    <!-- Modal for Video -->
+    <div id="videoModal" class="modal">
+        <span class="close" onclick="closeVideoModal()">&times;</span>
+        <iframe id="videoIframe" class="modal-content" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Modal for Figma Design -->
+    <div id="figmaModal" class="modal">
+        <span class="close" onclick="closeFigmaModal()">&times;</span>
+        <iframe id="figmaIframe" class="modal-content" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- Modal for Image -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeImageModal()">&times;</span>
+        <img id="modalImage" class="modal-content" src="" alt="">
+    </div>
+
     <script>
-        var modal = document.getElementById("myModal");
-        var images = document.querySelectorAll(".expand-image");
-        var expandedImg = document.getElementById("expandedImg");
-        var currentIndex = 0;
+        // Open Video Modal and load the video
+        function openVideoModal(videoUrl) {
+            var modal = document.getElementById('videoModal');
+            var iframe = document.getElementById('videoIframe');
+            iframe.src = videoUrl; // Set the iframe source to the clicked video's URL
+            modal.style.display = "block";
+        }
 
-        // Open modal with clicked image
-        images.forEach(function (image, index) {
-            image.addEventListener("click", function () {
-                modal.style.display = "block";
-                expandedImg.src = this.src;
-                currentIndex = index;
-            });
-        });
-
-        // Close the modal
-        var closeBtn = document.getElementsByClassName("close")[0];
-        closeBtn.onclick = function () {
+        // Close Video Modal
+        function closeVideoModal() {
+            var modal = document.getElementById('videoModal');
+            var iframe = document.getElementById('videoIframe');
+            iframe.src = ""; // Clear the iframe source to stop the video
             modal.style.display = "none";
         }
 
-        // Next and Previous buttons for modal
-        var prevBtn = document.getElementsByClassName("prev")[0];
-        var nextBtn = document.getElementsByClassName("next")[0];
-
-        prevBtn.onclick = function () {
-            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
-            expandedImg.src = images[currentIndex].src;
+        // Open Figma Modal and load the Figma design
+        function openFigmaModal() {
+            var modal = document.getElementById('figmaModal');
+            var iframe = document.getElementById('figmaIframe');
+            iframe.src = "https://embed.figma.com/proto/UY99l1LoPMrW7fMK30lW5f/Pixel-Mock?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=share"; // Figma design link
+            modal.style.display = "block";
         }
 
-        nextBtn.onclick = function () {
-            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
-            expandedImg.src = images[currentIndex].src;
+        // Close Figma Modal
+        function closeFigmaModal() {
+            var modal = document.getElementById('figmaModal');
+            var iframe = document.getElementById('figmaIframe');
+            iframe.src = ""; // Clear the iframe source to stop the Figma design
+            modal.style.display = "none";
         }
 
-        // Add functionality to arrows within each set
-        var sets = document.querySelectorAll('.image-set');
-        sets.forEach(function (set) {
-            var setImages = set.querySelectorAll('img');
-            var prevSetBtn = set.querySelector('.prev');
-            var nextSetBtn = set.querySelector('.next');
-            var currentSetIndex = 0;
+        // Open Image Modal and load the clicked image
+        function openImageModal(imageSrc) {
+            var modal = document.getElementById('imageModal');
+            var modalImage = document.getElementById('modalImage');
+            modalImage.src = imageSrc; // Set the image source to the clicked image
+            modal.style.display = "block";
+        }
 
-            // Navigate within the set
-            prevSetBtn.addEventListener('click', function () {
-                currentSetIndex = (currentSetIndex === 0) ? setImages.length - 1 : currentSetIndex - 1;
-                setImages.forEach(function (img, i) {
-                    img.style.display = i === currentSetIndex ? 'block' : 'none';
-                });
-            });
+        // Close Image Modal
+        function closeImageModal() {
+            var modal = document.getElementById('imageModal');
+            var modalImage = document.getElementById('modalImage');
+            modalImage.src = ""; // Clear the image source
+            modal.style.display = "none";
+        }
 
-            nextSetBtn.addEventListener('click', function () {
-                currentSetIndex = (currentSetIndex === setImages.length - 1) ? 0 : currentSetIndex + 1;
-                setImages.forEach(function (img, i) {
-                    img.style.display = i === currentSetIndex ? 'block' : 'none';
-                });
-            });
-
-            // Initialize the first image in the set to be visible
-            setImages.forEach(function (img, i) {
-                img.style.display = i === currentSetIndex ? 'block' : 'none';
-            });
-        });
+        // Close the modal when the user clicks on the close button
+        var closeBtn = document.getElementsByClassName("close");
+        for (var i = 0; i < closeBtn.length; i++) {
+            closeBtn[i].onclick = function () {
+                closeVideoModal();
+                closeFigmaModal();
+                closeImageModal();
+            }
+        }
     </script>
 
 </body>
