@@ -17,53 +17,81 @@
         <h2> Michael Dempsey</h2>
     </header>
 
-    <section id="portfolio" class="section">
-        <div class="portfolio-grid">
+    <div class="tabs">
+        <div class="tab active" data-tab="creative" onclick="showTab('creative')">Creative Design</div>
+        <div class="tab" data-tab="technical" onclick="showTab('technical')">Technical</div>
+    </div>
 
-            <div class="portfolio-item" onclick="openFigmaModal('https://embed.figma.com/proto/UY99l1LoPMrW7fMK30lW5f/Pixel-Mock?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=michaeldempsey-portfolio')">
-                <img src="letterboxdThumb.JPG" alt="LetterBoxd Redesign">
+    <section id="creative" class="tab-content active">
+        <div id="portfolio" class="section">
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openFigmaModal('https://embed.figma.com/proto/UY99l1LoPMrW7fMK30lW5f/Pixel-Mock?node-id=1-2&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2&embed-host=michaeldempsey-portfolio')">
+                    <img src="letterboxdThumb.JPG" alt="LetterBoxd Redesign">
+                </div>
+    
+                <div class="portfolio-item" onclick="openFigmaModal('https://embed.figma.com/proto/nU9KdWyrW77SM0N7u68HLJ/Project-1%3A-Interactive-Autobiography?node-id=2-2&starting-point-node-id=2%3A2&embed-host=michaeldempsey-portfolio')">
+                    <img src="timelineThumb.JPG" alt="Timeline">
+                </div>
+    
+                <div class="portfolio-item" onclick="openImageModal([ 'Space01.PNG', 'Space02.PNG' ])">
+                    <img src="Space01.PNG" alt="Project 1">
+                </div>
+    
+                <div class="portfolio-item" onclick="openImageModal([ 'SK01.PNG', 'SK02.PNG', 'SK03.PNG' ])">
+                    <img src="SK01.PNG" alt="Project 2">
+                </div>
+    
+                <div class="portfolio-item" onclick="openImageModal([ 'W01.PNG' ])">
+                    <img src="W01.PNG" alt="Project 3">
+                </div>
+    
+                <div class="portfolio-item" onclick="openImageModal([ 'House01.png', 'House02.png' ])">
+                    <img src="House01.png" alt="Project 3">
+                </div>
+    
+                <div class="portfolio-item" onclick="openImageModal([ 'Comic01.JPG', 'Comic02.JPG', 'Comic03.JPG'])">
+                    <img src="Comic01.JPG" alt="Project 3">
+                </div>
+    
+                <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/48jYBSJvXPQ')">
+                    <img src="DriveToCaveThumb.JPG" alt="Drive to Cave">
+                </div>
+    
+                <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/3664RQ_G_Ak')">
+                    <img src="redsunthumb.JPG" alt="Red Sun">
+                </div>
+    
+                <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/W08Ox0xXkc0')">
+                    <img src="lionthumb.JPG" alt="Lion">
+                </div>
+    
+                <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/rUIJDiAoWE4')">
+                    <img src="redsunthumb.JPG" alt="Case Files">
+                </div>
             </div>
+        </div>
+    </section>
 
-            
-            <div class="portfolio-item" onclick="openFigmaModal('https://embed.figma.com/proto/nU9KdWyrW77SM0N7u68HLJ/Project-1%3A-Interactive-Autobiography?node-id=2-2&starting-point-node-id=2%3A2&embed-host=michaeldempsey-portfolio')">
-                <img src="timelineThumb.JPG" alt="Timeline">
-            </div>
+    <section id="technical" class="tab-content">
+        <div id="technical-content">
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openPdfModal('BiologicalNetworksPaper.pdf')">
+                    <img src="BiologicalNetworksThumb.JPG" alt="Bio Networks" />
+                </div>
 
-            <div class="portfolio-item" onclick="openImageModal([ 'Space01.PNG', 'Space02.PNG' ])">
-                <img src="Space01.PNG" alt="Project 1">
-            </div>
+                <div class="portfolio-item" onclick="openPdfModal('BiologicalNetworksPres.pdf')">
+                    <img src="BiologicalNetworksPresThumb.JPG" alt="Bio Networks" />
+                </div>
 
-            <div class="portfolio-item" onclick="openImageModal([ 'SK01.PNG', 'SK02.PNG', 'SK03.PNG' ])">
-                <img src="SK01.PNG" alt="Project 2">
-            </div>
+                <div class="portfolio-item" onclick="openPdfModal('InfectiousDiseasePaper.pdf')">
+                    <img src="InfectiousDiseaseThumb.JPG" alt="Superspreading Paper" />
+                </div>
 
-            <div class="portfolio-item" onclick="openImageModal([ 'W01.PNG' ])">
-                <img src="W01.PNG" alt="Project 3">
+                <div class="portfolio-item" onclick="openPdfModal('Phage Lab Poster.pdf')">
+                    <img src="PhageLabThumb.JPG" alt="Superspreading Paper" />
+                </div>
             </div>
-
-            <div class="portfolio-item" onclick="openImageModal([ 'House01.png', 'House02.png' ])">
-                <img src="House01.png" alt="Project 3">
-            </div>
-
-            <div class="portfolio-item" onclick="openImageModal([ 'Comic01.JPG', 'Comic02.JPG', 'Comic03.JPG'])">
-                <img src="Comic01.JPG" alt="Project 3">
-            </div>
-
-            <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/48jYBSJvXPQ')">
-                <img src="DriveToCaveThumb.JPG" alt="Drive to Cave">
-            </div>
-
-            <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/3664RQ_G_Ak')">
-                <img src="redsunthumb.JPG" alt="Red Sun">
-            </div>
-
-            <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/W08Ox0xXkc0')">
-                <img src="lionthumb.JPG" alt="Lion">
-            </div>
-
-            <div class="portfolio-item" onclick="openVideoModal('https://www.youtube.com/embed/rUIJDiAoWE4')">
-                <img src="redsunthumb.JPG" alt="Case Files">
-            </div>
+          
         </div>
     </section>
 
@@ -86,6 +114,11 @@
         <button class="arrow arrow-left" onclick="changeImage(-1)">&#10094;</button>
         <img id="modalImage" class="modal-content" src="" alt="">
         <button class="arrow arrow-right" onclick="changeImage(1)">&#10095;</button>
+    </div>
+
+    <div id="pdfModal" class="modal">
+        <span class="close" onclick="closePdfModal()">&times;</span>
+        <embed id="pdfViewer" class="modal-content" type="application/pdf" width="100%" height="600px" />
     </div>
 
     <script>
@@ -120,6 +153,20 @@
             modal.style.display = "none";
         }
 
+        function openPdfModal(pdfUrl) {
+            var modal = document.getElementById('pdfModal');
+            var pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = pdfUrl;  
+            modal.style.display = "block";
+        }
+
+        function closePdfModal() {
+            var modal = document.getElementById('pdfModal');
+            var pdfViewer = document.getElementById('pdfViewer');
+            pdfViewer.src = ""; 
+            modal.style.display = "none";
+        }
+
         function openImageModal(images) {
             imagesArray = images;
             currentImageIndex = 0; 
@@ -150,6 +197,52 @@
                 closeVideoModal();
                 closeFigmaModal();
                 closeImageModal();
+                closePdfModal();
+            }
+        }
+
+        function showTab(tabName) {
+            var contents = document.querySelectorAll('.tab-content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            var tabs = document.querySelectorAll('.tab');
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+
+            document.getElementById(tabName).classList.add('active');
+            var activeTab = document.querySelector(`.tab[data-tab="${tabName}"]`);
+            activeTab.classList.add('active');
+        }
+        
+        window.onclick = function(event) {
+            var modals = document.querySelectorAll('.modal'); 
+            modals.forEach(function(modal) {
+                if (event.target === modal) {
+                    closeModal(modal);  
+                }
+            });
+        };
+
+        function closeModal(modal) {
+            var modalContent = modal.querySelector('.modal-content');  
+            if (modalContent) {
+                modal.style.display = "none"; 
+            }
+            if (modal.id === 'pdfModal') {
+                var pdfViewer = document.getElementById('pdfViewer');
+                pdfViewer.src = "";  
+            } else if (modal.id === 'videoModal') {
+                var iframe = document.getElementById('videoIframe');
+                iframe.src = ""; 
+            } else if (modal.id === 'figmaModal') {
+                var iframe = document.getElementById('figmaIframe');
+                iframe.src = "";  
+            } else if (modal.id === 'imageModal') {
+                var modalImage = document.getElementById('modalImage');
+                modalImage.src = ""; 
             }
         }
     </script>

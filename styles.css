@@ -131,6 +131,15 @@ nav a:hover {
     max-height: none;
 }
 
+#pdfModal .modal-content {
+    width: 90%;
+    height: 90%;
+    max-width: none;
+    max-height: none;
+}
+
+
+
 .close {
     position: absolute;
     top: 15px;
@@ -176,4 +185,28 @@ footer {
 
 .arrow-right {
     right: 10px;
+}
+
+.tabs {
+    display: flex;
+    cursor: pointer;
+    margin: 20px 0;
+}
+.tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    font-weight: bold;
+}
+.tab.active {
+    background-color: #222222;
+    color: white;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
 }
