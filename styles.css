@@ -125,8 +125,8 @@ nav a:hover {
 }
 
 #videoModal .modal-content {
-    width: 90%;
-    height: 90%;
+    width: 70%;
+    height: 70%;
     max-width: none;
     max-height: none;
 }
