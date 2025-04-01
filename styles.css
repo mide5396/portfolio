@@ -94,50 +94,44 @@ nav a:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.7);
-    padding-top: 60px;
+}
+
+.modal-content-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 1200px; 
+    height: 80%;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-    object-fit: contain; /* Ensures the image maintains its aspect ratio */
-}
-
-#imageModal .modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-}
-
-#figmaModal .modal-content {
-    width: 90%;
-    height: 90%;
-    max-width: none;
-    max-height: none;
-}
-
-#videoModal .modal-content {
-    width: 70%;
+    flex: 1; 
     height: 70%;
-    max-width: none;
-    max-height: none;
+    width: 70%;
+    border: none;
+    object-fit: contain; 
 }
 
-#pdfModal .modal-content {
-    width: 90%;
-    height: 90%;
-    max-width: none;
-    max-height: none;
+.modal-sidebar {
+    flex: 0 0 30%; /* Sidebar takes up 30% of the width */
+    padding: 20px;
+    background-color: #f7f7f7;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    height: 100%; /* Sidebar fills the height of the modal */
+    box-sizing: border-box; /* Makes sure padding is included in width calculation */
 }
 
+.modal-sidebar p {
+    font-size: 16px;
+}
 
 
 .close {
